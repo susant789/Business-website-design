@@ -59,7 +59,7 @@ html{
     perspective: 50rem;
     width: 100%;
     position: relative;
-    top: -10rem;
+    top: -6rem;
 
 
 }
@@ -73,7 +73,7 @@ html{
     text-shadow: .3rem .3rem .3rem rgba(0, 0, 0,.5);
     box-shadow: .3rem .3rem .3rem rgba(0, 0, 0,.5);
     position: relative;
-    top: -1rem;
+    top: 2rem;
     margin: 1rem 0;
     opacity: 0;
     animation: fadeanimate 1s 1.5s forwards;
@@ -89,7 +89,7 @@ html{
     border: .1rem solid rgba(121, 10, 10,0.5);
     border-radius: 4rem;
     position: relative;
-    top: 2rem;
+    top: 4rem;
     text-shadow: .3rem .3rem .3rem rgba(0, 0, 0,.5);
     box-shadow: .3rem .3rem .3rem rgba(0, 0, 0,.5);
     opacity: 0;
@@ -164,21 +164,31 @@ html{
 
 .navbar{
     width: 100%;
-    height: 100vh;
+    height: 0;
     top: 0;
     background: rgba(0,0,0,.9);
     position:fixed;
     z-index: 10;
+    transition: height .5s;
+    /* animation: navbarslide 2s forwards; */
 
+}
+
+.change.navbar{
+    height: 100vh;
+    transition: height .5s .3s;
 }
 
 .navbar .row1{
     width: 100%;
-    height: 6rem;
+    height: 0;
+    background: rgba(0,0,0,.9);
+    top: -5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* position: fixed; */
+    position: fixed;
+    animation: navbarslide 1s 1s forwards;
 }
 
 .logo{
@@ -207,6 +217,7 @@ html{
     justify-content: space-evenly;
     position: relative;
     right: 2rem;
+
 }
 
 .line{
@@ -233,7 +244,14 @@ html{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    opacity: 0;
+    transition: opacity .2s;
     
+}
+
+.change .nav-list{
+    opacity: 1;
+    transition: opacity .5s .7s;
 }
 
 .nav-list a{
@@ -246,6 +264,18 @@ html{
 
 .nav-list a:hover{
     color:rgb(226, 10, 10);
+}
+
+@keyframes navbarslide{
+    0%{
+        height: 0;
+        top: -5rem;
+    }
+
+    100%{
+        height: 8rem;
+        top: 0;
+    }
 }
 
 
