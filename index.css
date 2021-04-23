@@ -23,16 +23,44 @@ html{
     flex-direction: column;
     background: url("/images/dark-bg.jpeg") no-repeat;
     background-size: cover;
+    overflow: hidden;
+    
 }
 
 .section-h span{
-    position: relative;
+    position: absolute;
     font-size: 12rem;
     text-transform: uppercase;
     margin-bottom: 4rem;
-    top: -3rem;
     text-shadow: .3rem .3rem .3rem rgba(0, 0, 0,.5);
     color: #fff;
+    transform: translateZ(8rem);
+    opacity: 0;
+    letter-spacing: 3rem;
+}
+
+.section-h .heading1{
+    animation: animate-h1 12s 3s infinite;
+}
+.section-h .heading2{
+    animation: animate-h1 12s 6s infinite;
+}
+.section-h .heading3{
+    animation: animate-h1 12s 9s infinite;
+}
+.section-h .heading4{
+    animation: animate-h1 12s 12s infinite;
+}
+
+.section-h{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 50rem;
+    width: 100%;
+    position: relative;
+    top: -10rem;
+
 
 }
 
@@ -40,19 +68,21 @@ html{
     width: 30%;
     background: rgba(0,0,0,.5);
     text-align: center;
-    font-size: 4rem;
+    font-size: 3rem;
     color: #fff;
     text-shadow: .3rem .3rem .3rem rgba(0, 0, 0,.5);
     box-shadow: .3rem .3rem .3rem rgba(0, 0, 0,.5);
     position: relative;
     top: -1rem;
     margin: 1rem 0;
+    opacity: 0;
+    animation: fadeanimate 1s 1.5s forwards;
     
 }
 
-.section1 button{
+.btn{
     width: 28rem;
-    height: 6rem;
+    height: 4rem;
     font-size: 2.5rem;
     padding: 0 2rem;
     color: #fff;
@@ -62,5 +92,70 @@ html{
     top: 2rem;
     text-shadow: .3rem .3rem .3rem rgba(0, 0, 0,.5);
     box-shadow: .3rem .3rem .3rem rgba(0, 0, 0,.5);
+    opacity: 0;
     background: linear-gradient(to right,#9b0e0e,#7a1010);
+    animation: fadeanimate 1s 1.5s forwards;
+    overflow: hidden;
+}
+
+.btn::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -28rem;
+    background: linear-gradient(to right,transparent,#fff,transparent);
+    transform: skewX(-30deg);
+    z-index: 10;
+    transition: left .50s;
+
+
+}
+
+.btn:hover::before{
+    left: 28rem;
+}
+
+
+@keyframes animate-h1{
+
+    0%{
+        transform: translateZ(8rem);
+        opacity: 0;
+        letter-spacing: 3rem;
+    }
+
+    3%{
+        transform: translateZ(0);
+        opacity: 1;
+        letter-spacing: 1.5rem;
+    }
+    25%{
+        transform: translateZ(0);
+        opacity: 1;
+        letter-spacing: 1.5rem;
+    }
+
+    28%{
+        transform: translateZ(8rem);
+        opacity: 0;
+        letter-spacing: 3rem;
+    }
+
+    100%{
+        transform: translateZ(8rem);
+        opacity: 0;
+        letter-spacing: 3rem;
+    }
+    
+}
+@keyframes  fadeanimate{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
 }
